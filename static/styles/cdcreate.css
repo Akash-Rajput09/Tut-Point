@@ -1,0 +1,59 @@
+.course-create-container{
+    margin-top: 100px !important;
+}
+.course-create-title {
+    text-align: center;
+    font-size: 2rem;
+}
+.chapter-list-create li {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between title and button group */
+    align-items: center; /* Center items vertically */
+    padding: 10px; /* Padding for each list item */
+    background-color: #fff; /* White background for list items */
+    margin-bottom: 10px; /* Margin below each item */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.chapter-list-create {
+    margin: 20px 20px 0 20px; /* Margin above chapter list */
+}
+
+.chapter-title {
+    flex: 1; /* Take up remaining space */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Ellipsis for overflow text */
+    white-space: nowrap; /* Prevent wrapping */
+    margin-right: 20px; /* Space between title and buttons */
+}
+.btn-add-chapter-create {
+    
+    display: block; /* Make it a block-level element for centering */
+    margin: 20px auto; /* Center the button with margin */
+    padding: 12px 20px; /* Padding for the button */
+    background-color: black; /* Green background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    text-align: center; /* Center text inside button */
+}
+.button-group {
+    display: flex; /* Use flexbox for button alignment */
+}
+
+.edit-btn, .delete-btn {
+    background-color: #2196F3; /* Blue background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+    margin-left: 5px; /* Space between buttons */
+}
+.delete-btn{
+    background-color: rgb(223, 88, 88);
+}

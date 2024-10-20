@@ -1,0 +1,86 @@
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+}
+
+.dropdown {
+    margin-bottom: 20px;
+    width: 30%;
+    margin: 20px auto;
+}
+#chapter-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+.chapter-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chapter-content {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.navbutton {
+    color: inherit;         /* Remove link color and inherit from parent */
+    text-decoration: none;  /* Remove underline */
+    background: none;       /* Remove background */
+    border: none;           /* Remove border */
+    padding: 0;             /* Remove padding */
+    margin: 0;              /* Remove margin */
+    font: inherit;          /* Inherit font properties */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .chapter-title {
+        font-size: 1.2rem;
+    }
+
+    .chapter-content {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

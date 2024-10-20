@@ -1,0 +1,195 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* Space between the course name and the button */
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  margin-top: 80px;
+}
+
+.course-name {
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  width: 60%; /* Adjust as needed */
+}
+
+.enroll-button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.enroll-button:hover {
+  opacity: 0.8;
+}
+
+/* Responsive font sizes */
+@media screen and (max-width: 1200px) {
+  .course-name {
+    font-size: 1.4rem;
+  }
+  .enroll-button {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .course-name {
+    font-size: 1.3rem;
+  }
+  .enroll-button {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .course-name {
+    font-size: 1.2rem;
+  }
+  .enroll-button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .course-name {
+    font-size: 1rem;
+  }
+  .enroll-button {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.chapters-container {
+    display: flex;
+    flex-direction: column; /* Stack chapters vertically */
+    gap: 10px; /* Space between chapters */
+}
+
+.chapter {
+    width: 100%; /* Full width of the container */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.chapter-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px 0px;
+    font-size: 1.2rem;
+}
+
+.chapter.expanded .chapter-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+.chapter:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+.course-details-preview {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  overflow: hidden; /* Prevent overflow */
+  justify-content: center;
+}
+
+.course-details-preview h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  word-wrap: break-word; /* Prevent long text from overflowing */
+}
+
+.course-info-preview {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  flex-wrap: nowrap; /* Ensure no wrapping occurs */
+  justify-content: center; /* Align items at the start */
+}
+
+.course-info-preview div {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  word-wrap: break-word; /* Handle long words */
+  justify-content: center;
+}
+
+.course-info-preview span {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  .course-details-preview h2 {
+    font-size: 1.6rem;
+  }
+  .course-info-preview div {
+    font-size: 1.1rem;
+    max-width: 100%; /* Ensure items stack in a single column on smaller screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .course-details-preview h2 {
+    font-size: 1.4rem;
+  }
+  .course-info-preview div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .course-details-preview {
+    padding: 15px;
+  }
+  .course-details-preview h2 {
+    font-size: 1.2rem;
+  }
+  .course-info-preview div {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+}

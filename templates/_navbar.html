@@ -1,0 +1,36 @@
+<div class="navbar">
+    <div class="logo"><a href="{% url "home" %}">TutPoint</a></div>
+    <ul class="navlist">
+      <li class="navitem"><a href="{% url "course_list" %}">Browse</a></li>
+      <li class="navitem"><a href="{% url "enrolledin" %}">My Courses</a></li>
+      <li class="navitem"><a href="{% url "teach" %}">Teach with us</a></li>
+      <li class="navitem profile">
+        <a href="{% url "profile" %}">
+          <span class="material-symbols-outlined profileicon"> person </span>
+          Profile</a
+        >
+      </li>
+    </ul>
+    <div class="buttonarea">
+      {% if request.user.is_authenticated %}
+      <button class="signin" id="username" onclick="location.href='{% url "profile" %}'">User: {{request.user.first_name}}</button>
+      {% else %}
+      <button class="signin"><a href="{% url "signup" %}">Sign-In</a></button>
+      {% endif %}
+    </div>
+    <div class="menuicon">
+      <span class="material-symbols-outlined"> menu </span>
+    </div>
+  </div>
+
+  <div class="mobile-menu">
+    <span class="material-symbols-outlined crossicon"> close </span>
+    <ul class="mobilelist">
+      <li><a href="{% url "course_list" %}">Browse</a></li>
+      <li><a href="{% url "enrolledin" %}">My Courses</a></li>
+      <li><a href="{% url "teach" %}">Teach with us</a></li>
+      <li class="navitem profile">
+        <a href="{% url "profile" %}"> Profile</a>
+      </li>
+    </ul>
+  </div>

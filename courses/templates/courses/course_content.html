@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TutPoint/Courses</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/content.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    {% include "_navbar.html" %}
+
+    <div class="container">
+        <div class="dropdown">
+            <select id="chapter-dropdown">
+                {% for chapter in chapters %}
+                <option value="{% url 'content' course_id=course.id chap_num=chapter.chapter_number %}" {% if chapter.chapter_number == current %}selected{% endif %}>Chapter {{chapter.chapter_number}}: {{chapter.title}}</option>
+                <!-- Add more chapters as needed -->
+                {% endfor %}
+            </select>
+        </div>
+        <div class="chapter-title" id="chapter-title">{{chapter.title}}</div>
+        <div class="chapter-content" id="chapter-content">
+            <p>
+                <!-- Placeholder for large content -->
+                {{chapter.content}}
+
+            </p>
+        </div>
+        <div class="navigation-buttons">
+            {% if previous > 0 %}
+        <a href="{% url 'content' course_id=course.id chap_num=previous %}" class="navbutton">
+            <button id="prev-button">Previous</button>
+        </a>
+    {% else %}
+        <button id="prev-button" disabled>Previous</button>
+    {% endif %}
+
+    {% if next <= chapters_total %}
+        <a href="{% url 'content' course_id=course.id chap_num=next %}" class="navbutton">
+            <button id="next-button">Next</button>
+        </a>
+    {% else %}
+        <button id="next-button" disabled>Next</button>
+    {% endif %}
+        </div>
+    </div>
+
+    {% include "_footer.html" %}
+    <script src={% static 'scripts/script.js' %}></script>
+    <script>
+        document.getElementById('chapter-dropdown').addEventListener('change', function() {
+            var url = this.value; // Get the URL from the selected option's value
+            if (url) {
+                window.location.href = url; // Redirect to the selected chapter's URL
+            }
+        });
+    </script>
+  </body>
+</html>

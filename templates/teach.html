@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TutPoint</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/courses.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <style>
+        h2 {
+            font-size:2rem;
+            margin-top: 30px;
+            margin-bottom:20px;
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    
+    {% comment %} navbar {% endcomment %}
+    {% include "_navbar.html" %}
+
+    <div class="herobody">
+      <div class="herotext">
+        Create and upload your own courses and easily share with anyone. <br />
+        <a href="{% url "create" %}"
+          ><button class="explore-btn">
+            Create a Course
+            <span class="material-symbols-outlined exparrow">
+              arrow_right_alt
+            </span>
+          </button></a>
+      </div>
+      <div class="heroimage">
+        <img src="{% static 'images/teach.png' %}" alt="" />
+      </div>
+    </div>
+
+    <h2>My Created Courses</h2>
+    {% if user.is_authenticated %}
+    <section class="course-gallery">
+       
+        {% for course in courses %}
+        <a href="{% url 'cdcreate' course_id=course.id  %}" class="course-card-courses">
+          
+        <img src="{{ course.thumbnail.url }}" alt="Course image" class="course-thumbnail">
+        <div class="course-details">
+            <h3 class="course-title">{{ course.name }}</h3>
+            <button class="price">
+              View</
+              button>
+        </div> 
+      </a>
+        {% endfor %}
+       
+        <!-- Add more courses as needed -->
+    </section>
+    {% endif %}
+
+    {% include "_footer.html" %}
+
+    <script src={% static 'scripts/script.js' %}></script>
+  </body>
+</html>

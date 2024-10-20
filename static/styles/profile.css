@@ -1,0 +1,42 @@
+.profile-container {
+    padding: 20px;
+    max-width: 600px; /* Set a max width for better readability */
+    margin: 0 auto; /* Center the container */
+    text-align: center;
+    margin-top: 100px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.user-info {
+    margin-bottom: 30px; /* Increased margin for separation */
+}
+
+.user-info p {
+    margin: 5px 0; /* Spacing between paragraphs */
+    font-size: 18px; /* Adjust font size for readability */
+}
+
+.buttons {
+    margin: 15px 0; /* Spacing between buttons */
+}
+
+.btn {
+    background-color: black; /* Change to black for the theme */
+    color: white; /* Text color */
+    padding: 12px 20px; /* Add more padding for button size */
+    text-decoration: none;
+    border-radius: 5px;
+    border: none; /* Remove border for a cleaner look */
+    transition: background-color 0.3s;
+    display: inline-block; /* Allows for margin to apply properly */
+}
+
+.btn:hover {
+    background-color: #444; /* Darker shade on hover */
+}
+
+.logout {
+    margin-top: 20px; /* Space above logout button */
+}

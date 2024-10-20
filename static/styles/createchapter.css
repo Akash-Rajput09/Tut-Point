@@ -1,0 +1,87 @@
+
+.course-upload-container, .chapter-upload-container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added for a cleaner look */
+}
+
+.course-upload-container h2 {
+    text-align: center;
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+}
+
+input[type="text"], input[type="file"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+}
+
+textarea {
+    height: 100px;
+}
+
+.course-upload-container button{
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.course-upload-container button:hover {
+    background-color: #333;
+    color: white;
+}
+
+.btn-add-chapter {
+    margin-bottom: 15px;
+}
+
+.chapter-list {
+    margin-top: 20px;
+}
+
+.course-upload-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.course-upload-containern li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Add separator between chapters */
+}
+
+.edit-btn, .delete-btn {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #ffcc00;
+    color: black;
+}

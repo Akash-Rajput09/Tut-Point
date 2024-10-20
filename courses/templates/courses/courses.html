@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TutPoint/Courses</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/courses.css' %}">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    {% include "_navbar.html" %}
+
+    {% comment %} <div class="filter-section">
+      <div class="container-area">
+        <div class="search-bar">
+          <input type="text" placeholder="Search courses..." />
+        </div>
+        <div class="sort-dropdown">
+          <label for="sort" class="sort-by">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="enrolled" selected>Popular</option>
+            <option value="time">Latest</option>
+          </select>
+        </div>
+      </div>
+    </div> {% endcomment %}
+
+
+    <section class="course-gallery" style="margin-top:100px;">
+      {% for course in courses %}
+      <a href="{% url 'preview' id=course.id %}" class="course-card-courses">
+        
+      <img src="{{ course.thumbnail.url }}" alt="Course image" class="course-thumbnail">
+      <div class="course-details">
+          <h3 class="course-title">{{ course.name }}</h3>
+          <button class="price">
+            {% if course.price == 0 %}
+            Free
+            {% else %}
+            {{ course.price }}
+            {% endif %}</
+            button>
+      </div> 
+    </a>
+      {% endfor %}
+     
+      <!-- Add more courses as needed -->
+  </section>
+
+  {% include "_footer.html" %}
+    
+
+    <script src={% static 'scripts/script.js' %}></script>
+  </body>
+</html>
