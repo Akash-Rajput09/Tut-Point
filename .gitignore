@@ -1,3 +1,4 @@
 media/thumbnails/*
+!media/thumbnails/
 db.sqlite3
 db.sqlite3.sqbpro
