@@ -15,6 +15,48 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
+
+    <style>
+      
+.video-list-container {
+    margin-top: 20px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .video-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .video-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    color: #424242;
+    width:400px;
+    border-radius: 10px;
+    background-color: #f5efef;
+  }
+  
+  .video-icon {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .video-item:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+      
+    </style>
   </head>
   <body>
     {% include "_navbar.html" %}
@@ -28,11 +70,31 @@
                 {% endfor %}
             </select>
         </div>
+
+        {% comment %} video content {% endcomment %}
+        {% if videos %}
+        <div class="video-list-container">
+            <h3>Videos</h3>
+            
+            <ul class="video-list" >
+              {% for video in videos %}
+                <li class="video-item" onclick="location.href='{% url 'video' video.id %}'">
+                    <span class="material-symbols-outlined video-icon">
+                        play_circle
+                        </span> {{video.title}}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        
+
         <div class="chapter-title" id="chapter-title">{{chapter.title}}</div>
         <div class="chapter-content" id="chapter-content">
             <p>
                 <!-- Placeholder for large content -->
-                {{chapter.content}}
+                {{chapter.content|linebreaks}}
 
             </p>
         </div>

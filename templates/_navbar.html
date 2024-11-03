@@ -13,7 +13,7 @@
     </ul>
     <div class="buttonarea">
       {% if request.user.is_authenticated %}
-      <button class="signin" id="username" onclick="location.href='{% url "profile" %}'">User: {{request.user.first_name}}</button>
+      <button class="signin" id="username" onclick="location.href='{% url "profile" %}'">u/{{request.user.username}}</button>
       {% else %}
       <button class="signin"><a href="{% url "signup" %}">Sign-In</a></button>
       {% endif %}

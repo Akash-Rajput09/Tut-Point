@@ -39,3 +39,12 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f"{self.user.username} enrolled in {self.course.name}"
+    
+class Video(models.Model):
+    title = models.CharField(max_length=200)
+    video_file = models.FileField(upload_to='videos/')
+    description = models.TextField()
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, related_name='videos')
+
+    def __str__(self):
+        return f"Video {self.title} for Chapter {self.chapter.chapter_number}"

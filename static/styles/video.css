@@ -1,0 +1,302 @@
+/* General Styles */
+:root {
+    --bg-color-1: #e7e7e7;
+    --bg-color-2: #e5e3e3;
+    --bg-color-3: #dcdcdc;
+    --bg-color-hover: #c1c1c1;
+    --text-color-1: #070707;
+    --text-color-2: #252525;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color-2);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color-1);
+    overflow-x: hidden;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    color: var(--text-color-1);
+    margin: 0;
+    margin-top: 80px;
+    padding: 0;
+}
+
+.video-section {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    background-color: var(--bg-color-2);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: fixed;
+    top: 90px !important;
+    bottom: 0;
+    width: 66.6%;
+}
+
+.video-player {
+    flex: 8; 
+    background-color: var(--bg-color-3);
+    width: 100%;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    background-color: var(--bg-color-2);
+    padding: 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.video-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-color-1);
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    margin-top: 15px;
+}
+
+.course-name {
+    font-size: 1.3em;
+    color: var(--text-color-1);
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.next-section {
+    width: 33.4%;
+    background-color: var(--bg-color-1);
+    padding: 10px;
+    margin-left: 66.6%;
+    overflow-y: auto;
+}
+
+.next-sections-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-item {
+    background-color: var(--bg-color-3);
+    padding: 20px 15px;
+    color: var(--text-color-1);
+    font-size: 1.3rem;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    height: 5rem;
+    align-items: center;
+    display: flex;         
+    justify-content: space-between;          
+    white-space: nowrap;
+    transition: all 0.3s ease-in-out;
+}
+
+.section-item:hover {
+    background-color: var(--bg-color-hover);
+}
+
+.chapter-content {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    padding: 0 10px;
+}
+.qa-item .question {
+    background-color: var(--bg-color-2);
+    padding: 10px;
+    font-weight: bold;
+}
+
+.qa-item .answer {
+    background-color: var(--bg-color-1);
+    padding: 10px;
+}
+
+.tab-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tab {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color-1);
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.tab.active {
+    border-bottom: 2px solid var(--text-color-2);
+    color: var(--text-color-2);
+}
+
+@media (max-width: 1024px) {
+    body {
+        background-color: var(--bg-color-2);
+        overflow-y: auto;
+    }
+    .container {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+    }
+
+    .video-section {
+        position: static;
+        width: 100%;
+        
+    }
+
+    .next-section {
+        width: 100%;
+        margin-left: 0; 
+        background-color: var(--bg-color-2);
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .video-info {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        background-color: var(--bg-color-2);
+        padding: 15px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin-top: -15px;
+    }
+    
+    .video-title {
+        margin-top: 0;
+    }
+    .section-item:hover{
+        transform: scale(1) !important;
+        background-color: var(--bg-color-3);
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .video-title, .course-name {
+        font-size: 1.2em;
+    }
+
+    .section-item {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+
+    .video-player {
+        height: 300px;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    body {
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0;
+    }
+
+    .tab-container {
+        justify-content: space-around;
+    }
+
+    .qa-item .question, .qa-item .answer {
+        font-size: 0.9rem;
+    }
+
+    .video-player {
+        height: 400px;
+    }
+    .section-item {
+        font-size: 1rem;
+    }
+
+}
+
+.section-text {
+    flex: 1;              
+    overflow: hidden;      
+    text-overflow: ellipsis; 
+}
+
+.arrow-icon {
+    font-size: 2rem; 
+    margin-left: 10px;
+    transition: all 0.5s ease;
+    transform: rotate(270deg);
+}
+
+.section-wrap{
+    margin-top: 10px;
+    
+}
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1px;
+}
+
+.chapter-item {
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 100;
+    padding: 0 20px;
+    margin: 0;
+}
+.chapter-item:hover {
+    background-color: var(--bg-color-hover);
+    color: var(--text-color-3);
+}
+
+.active-section {
+    border: 1px solid var(--text-color-3);
+}
+.text-wrap{
+    text-wrap: wrap;
+
+    /* turn this on if you want to change the color of the text when the section is expanded */
+    /* color: var(--text-color-2); */
+}
+
+@media (max-width: 480px) {
+    .chapter-item {
+        font-size: 1rem;
+    }
+    
+}

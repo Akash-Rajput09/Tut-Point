@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.shortcuts import get_object_or_404
-from .models import Course,Chapter,Enrollment
+from .models import Course,Chapter,Enrollment,Video
 from django.contrib.auth.decorators import login_required
 
 
@@ -25,6 +25,7 @@ def content(request, course_id, chap_num):
     chapter = get_object_or_404(course.chapters.filter(chapter_number=chap_num))
     previous = chap_num - 1
     next = chap_num + 1
+    videos = chapter.videos.all()
     context = {
         'course': course,
         'chapter': chapter,
@@ -32,7 +33,8 @@ def content(request, course_id, chap_num):
         'chapters_total': course.chapters.count(),
         'previous': previous,
         'next': next,
-        'current': chap_num
+        'current': chap_num,
+        'videos': videos
         
     }
     if not Enrollment.objects.filter(user=request.user, course=course).exists():
@@ -71,17 +73,25 @@ def addchapter(request, course_id):
         content = request.POST.get('chapter_content')
         chapter_number = course.chapters.count() + 1
 
-        Chapter.objects.create(
+        chapter = Chapter.objects.create(
             title=title,
             content=content,
             chapter_number=chapter_number,
             course=course
         )
-        
+        video_files = request.FILES.getlist('video_file')
+        video_descriptions = request.POST.get('video-desc')
+        video_title = request.POST.get('video-title')
+        for video_file in video_files:
+                Video.objects.create(
+                    title=video_title,
+                    video_file=video_file,
+                    description=video_descriptions,
+                    chapter=chapter
+                )
         course.number_of_chapters = course.chapters.count()
         course.save()
-
-        return redirect('cdcreate', course_id=course.id)
+        return redirect('cdcreate', course_id=course_id)
 
     return render(request, 'courses/addchapter.html', {'course': course})
 
@@ -125,6 +135,8 @@ def editchapter(request, chapter_id):
 @login_required
 def enroll(request, course_id):
     course = get_object_or_404(Course, id=course_id)
+    if Enrollment.objects.filter(user=request.user, course=course).exists():
+        return redirect('content', course_id=course.id, chap_num=1)
     enroll,created = Enrollment.objects.get_or_create(user=request.user, course=course)
     print(f"Enrollment Created: {created}")
     if not created:
@@ -140,5 +152,25 @@ def enrolledcourses(request):
     user = request.user
     courses = Course.objects.filter(enrollment__user=user)
     return render(request, 'courses/enrolledcourses.html', {'courses':courses})
-# #To do stuff in the db
+
+@login_required
+def video(request, video_id):
+    # Fetch the video by its ID
+    video = get_object_or_404(Video, id=video_id)
     
+    # Get the chapter associated with the video
+    chapter = video.chapter
+    course = chapter.course  # Get the course associated with the chapter
+    
+    # Get all videos in the same chapter
+    videos_in_chapter = chapter.videos.all()
+    
+    # Get the list of next videos in the same course
+    next_videos = Video.objects.filter(chapter__course=course).exclude(id=video.id).order_by('chapter__chapter_number')  # Exclude the current video
+    
+    return render(request, 'courses/videoplayer.html', {
+        'video': video,
+        'course': course,
+        'next_videos': next_videos,
+        'videos_in_chapter': videos_in_chapter  # Optional: if you want to show all videos in the chapter
+    })

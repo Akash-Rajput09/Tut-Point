@@ -40,9 +40,9 @@
     
     <section class="course-details-preview">
       <div class="course-info-preview">
-        <div><span>Author:</span> {{ course.author}}</div>
+        <div><span>Author:</span> {{ course.author.username}}</div>
         <div><span>Price:</span> {{ course.price }}</div>
-        <div><span>Date of Upload:</span> {{ course.date_of_upload }}</div>
+        <div><span>Date of Upload:</span> {{ course.created_at|date:"Y-m-d" }}</div>
         <div><span>Number of Chapters:</span> {{ count }}</div>
       </div>
     </section>

@@ -60,7 +60,7 @@
           <img src="{{course.thumbnail.url}}" alt="" />
           <div class="info">
             <h3>{{course.name}}</h3>
-            <button class="price">Get</button>
+            <button class="price" onclick="location.href='{% url 'preview' id=course.id %}'">Get</button>
           </div>
         </div>
 
@@ -83,7 +83,7 @@
           <img src="{{course.thumbnail.url}}" alt="" />
           <div class="info">
             <h3>{{course.name}}</h3>
-            <button class="price">Get</button>
+            <button class="price" onclick="location.href='{% url 'preview' id=course.id %}'">Get</button>
           </div>
         </div>
 

@@ -29,7 +29,7 @@ def signup(request):
             return render(request, 'signup.html')
 
         # Create user
-        user = User.objects.create_user(username=email, email=email, password=password)
+        user = User.objects.create_user(username=name, email=email, password=password)
         user.first_name = name
         
         login(request, user)

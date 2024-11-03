@@ -11,4 +11,5 @@ urlpatterns = [
     path('edit_chapter/<int:chapter_id>/', views.editchapter, name='editchapter'),
     path('enroll/<int:course_id>/', views.enroll, name='enroll'),
     path('enrolledin/',views.enrolledcourses, name='enrolledin'),
+    path('video/<int:video_id>/', views.video, name='video'),
 ]
