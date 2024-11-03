@@ -1,6 +1,9 @@
 media/thumbnails/*
 !media/thumbnails/.gitkeep
+<<<<<<< HEAD
 media/videos/*
 !media/videos/.gitkeep
+=======
+>>>>>>> d51c2427b2184491598a17748279f372ec99490e
 db.sqlite3
 db.sqlite3.sqbpro
